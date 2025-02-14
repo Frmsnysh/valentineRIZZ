@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALOO SAYANGGG ?</title>
+    <style>
+        /* CSS dari styles.css */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9e3e3;
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #6a72b4;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .yes-button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .no-button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            background-color: #a9372f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .gif_container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* CSS dari yes_style.css */
+        .header_text {
+            font-size: 3em;
+            color: #6a72b4;
+        }
+    </style>
+</head>
+<body>
+    <!-- Halaman Utama -->
+    <div class="container" id="main-page">
+        <h1>Duarrr , BOLEH MINTA PAP KAHH ?  :v</h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">Yes</button>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
+        <div class="gif_container">
+            <img src="https://media.giphy.com/media/E1w0yvMxBIv5M8WkL8/giphy.gif?cid=ecf05e476hzvuf81pf0ws70xf33gmsatade8bnuei56s9qfc&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Cute GIF">
+        </div>
+    </div>
+
+    <!-- Halaman "Yes" (Awalnya Tersembunyi) -->
+    <div class="container" id="yes-page" style="display: none;">
+        <h1 class="header_text">I LOVE U SAYANGGGGG , btw mana pap nya :) ? </h1>
+        <div class="gif_container">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnBja3U5bjZmZHpiYzF1MzZqc3QxdDIyaGZyYjl3bnlib2FnYWp3ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fjxupFeOlzwRnhKT0b/giphy.gif" alt="Love GIF">
+        </div>
+    </div>
+
+    <script>
+        // JavaScript dari script.js
+        const messages = [
+            "Yang bener?",
+            "Beneran??",
+            "Beneran kah maniesss?",
+            "Alamakkk...",
+            "WOIII!",
+            "Puki...",
+            "WOII MINTA PAP...",
+            "Ubur-ubur ikan lele, MINTA PAP LEEEE...",
+            "PAP LEEE...",
+            "TEKAN YAA DONG CANTIKKK :) ❤️"
+        ];
+
+        let messageIndex = 0;
+
+        function handleNoClick() {
+            const noButton = document.querySelector('.no-button');
+            const yesButton = document.querySelector('.yes-button');
+            noButton.textContent = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+            const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = `${currentSize * 1.5}px`;
+        }
+
+        function handleYesClick() {
+            // Sembunyikan halaman utama dan tampilkan halaman "Yes"
+            document.getElementById('main-page').style.display = 'none';
+            document.getElementById('yes-page').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
